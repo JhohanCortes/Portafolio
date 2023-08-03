@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 
 import linkedin from "./Recourses/linkedin.png";
@@ -66,6 +66,17 @@ function App() {
           src={pic}
           alt="Jhohan-Cortes"
         ></img>
+        <div class="mt-2 flex justify-center items-center">
+          <a
+            href="https://www.linkedin.com/in/jhohan-cortes-a314a8213/"
+            target="_blank"
+          >
+            <img src={gitHub} class="w-10 h-10 filter invert"></img>
+          </a>
+          <a href="https://github.com/JhohanCortes" target="_blank">
+            <img src={linkedin} class="w-11 h-11 filter invert"></img>
+          </a>
+        </div>
       </div>
       <img
         className="mx-auto md:w-96 pt-20 pb-0"
@@ -94,7 +105,7 @@ function App() {
             <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
               <img
                 src={technologies}
-                className="mx-auto"
+                className="mx-auto w-12 filter invert"
                 alt="Technologies"
               ></img>
             </div>
@@ -107,7 +118,7 @@ function App() {
           </div>
           <div className="w-1/3">
             <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
-              <img src={languages} className="mx-auto" alt="Languages"></img>
+              <img src={languages} className="mx-auto w-12 filter invert" alt="Languages"></img>
             </div>
             <strong>Languages</strong>
             <ul>
@@ -118,7 +129,7 @@ function App() {
           </div>
           <div className="w-1/3">
             <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
-              <img src={tools} className="mx-auto" alt="Tools"></img>
+              <img src={tools} className="mx-auto w-12 filter invert" alt="Tools"></img>
             </div>
             <strong>Tools</strong>
             <ul>
@@ -130,48 +141,65 @@ function App() {
         </div>
       </div>
 
-      <div className="mt-10 bottom-5">
+      <divs className="mt-10 bottom-5">
         <div className="py-10">
           <strong className="font-sans text-4xl">Proyects</strong>
           <p className="font-code text-xl">
             Projects I have undertaken or had the chance to collaborate on
           </p>
         </div>
-        <div className="flex md:space-x-4 md:space-y-0 space-y-10 z-100 w-5/6 mx-auto grid md:gap-4 md:grid-cols-3 md:grid-rows- md:gap-4 grid-cols-1 grid-rows-1">
-          <div class="m-1/3">
-            <div class="max-w-xs rounded overflow-hidden shadow-lg">
-              <img src={proyects[0].image} alt="Proyecto 1" class="w-full" />
-            </div>
-          </div>
-          <div class="m-1/3">
-            <div class="max-w-xs rounded overflow-hidden shadow-lg">
-              <img src={proyects[0].image} alt="Proyecto 1" class="w-full" />
-            </div>
-          </div>
-          <div class="m-1/3">
-            <div class="max-w-xs rounded overflow-hidden shadow-lg">
-              <img src={proyects[1].image} alt="Proyecto 1" class="w-full" />
-            </div>
-          </div>
-          <div class="m-1/3">
-            <div class="max-w-xs rounded overflow-hidden shadow-lg">
-              <img src={proyects[1].image} alt="Proyecto 1" class="w-full" />
-            </div>
-          </div>
-          <div class="m-1/3">
-            <div class="max-w-xs rounded overflow-hidden shadow-lg">
-              <img src={proyects[1].image} alt="Proyecto 1" class="w-full" />
-            </div>
-          </div>
+        <div className="grid md:grid-cols-3 md:grid-rows- md:gap-2 grid-cols-1 grid-rows-1 w-5/6 mx-auto">
+          {proyects.map((e) => {
+            return (
+              <div class="relative group mx-auto">
+                <img
+                  src={e.image}
+                  alt="Proyecto 1"
+                  class="border-2 border-gray-800 hover:brightness-0 duration-200 h-full w-full rounded"
+                />
+                <div class="absolute top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity group-hover:opacity-50"></div>
+
+                {e.deploy ? (
+                  // Si existe deploy
+                  <div className="grid grid-cols-1 gap-2 absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <a href={e.deploy} target="_blank">
+                      <button class="rounded-full font-bold border-4 border-white hover:bg-pink-400  text-white p-5 py-1  opacity-0 transition-opacity group-hover:opacity-100">
+                        Deploy
+                      </button>
+                    </a>
+                    <a href={e.repository} target="_blank">
+                      <button class="rounded-full font-bold border-4 border-white hover:bg-pink-400 text-white p-5 py-1  opacity-0 transition-opacity group-hover:opacity-100">
+                        Github
+                      </button>
+                    </a>
+                  </div>
+                ) : (
+                  // Si no hay deploy
+                  <div className="grid grid-cols-1 gap-2 absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <a href={e.repository} target="_blank">
+                      <button class="rounded-full font-bold border-4 border-white hover:bg-pink-400 text-white p-5 py-1  opacity-0 transition-opacity group-hover:opacity-100">
+                        Github
+                      </button>
+                    </a>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-      </div>
+      </divs>
+
       <footer className="bg-[#333333] mt-10 bottom-0">
-        <h2 className="font-sans pt-10 text-base text-white">
-          App made with tailwind, react and sketched in figma
-        </h2>
-        <div className="flex px-auto">
-          <img src={gitHub} className="w-10 h-10"></img>
-          <img src={linkedin} className="w-10 h-10"></img>
+        <div className="py-10">
+          <h2 className="font-sans text-base text-white">
+            App made with Tailwind, React, and sketched in Figma.
+          </h2>
+          <h2 className="font-sans text-base text-white">
+            Contact me on GitHub, LinkedIn, or via Gmail to know{" "}
+            <a href="#" className="underline">
+              more!
+            </a>
+          </h2>
         </div>
       </footer>
     </div>

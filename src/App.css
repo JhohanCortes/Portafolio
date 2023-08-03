@@ -5,3 +5,57 @@
 body{
   align-items: center;
 }
+
+/* Estilos para el div contenedor */
+.image-container {
+  position: relative;
+}
+
+/* Estilos para la imagen */
+.image {
+  width: 200px;
+  height: 200px;
+  transition: filter 0.3s ease;
+}
+
+/* Estilos para el botón */
+.hidden-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Estilos para el efecto de hover */
+.image-container:hover .image {
+  filter: brightness(70%);
+}
+
+.image-container:hover .hidden-button {
+  opacity: 1;
+}
+
+
+@keyframes show {
+  from {
+    opacity:.0;
+    scale: 25%;
+  }
+
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+.Content {
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+
+  animation-timeline: --image;
+  animation-name: show;
+
+  animation-range: entry 25% cover 25%;
+  animation-fill-mode: both;
+}

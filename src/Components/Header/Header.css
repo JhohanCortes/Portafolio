@@ -1,0 +1,19 @@
+/* Ejemplo del CSS para la animación de desvanecimiento */
+@keyframes notificationFadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+  /* Estilo de la notificación */
+  .animate-notificationFadeOut {
+    animation: notificationFadeOut 5s linear;
+  }
+  
