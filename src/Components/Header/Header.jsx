@@ -28,7 +28,7 @@ const Header = () => {
           className="animate-notificationFadeOut bg-green-500 text-white px-4 py-2 rounded-lg absolute bottom-5 right-5 mt-20"
           onAnimationEnd={() => setShowNotification(false)}
         >
-          Mail address copied to your clipboard
+          Mail address copied to your clipboard {":)"}
         </div>
       )}
     </div>

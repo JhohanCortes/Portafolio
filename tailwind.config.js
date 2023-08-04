@@ -16,6 +16,9 @@ module.exports = {
         "warning": "#FFC107",
         "error": "#DC3545",
         "info": "#17A2B8"
+      },
+      margin: {
+        '1000px': '700px',
       }
     },
   },
