@@ -55,7 +55,7 @@ const Tools = [
 
 function App() {
   return (
-    <div className="text-center mx-auto relative">
+    <div className="text-center mx-auto">
       <Header />
 
       <div className="py-20">
@@ -100,8 +100,8 @@ function App() {
         alt="Cat-Image"
       />
 
-      <div className="md:relative h-screen">
-        <div className="py-20 bg-[#333333] text-white z-50 w-full">
+      <div className="md:relative">
+        <div className="pt-20 pb-40 bg-[#333333] text-white z-50 w-full">
           <strong className="font-sans text-3xl">
             Hi, I'm Jhohan. Nice to meet you
           </strong>
@@ -115,10 +115,11 @@ function App() {
             my knowledge.
           </p>
         </div>
+      </div>
 
-        <div className="md:absolute md:top-72 md:left-1/2 md:transform md:-translate-x-1/2 md:mt-0 mt-10 mx-auto bg-white rounded-3xl border border-black py-10 flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-4 space-x-1 z-100 w-5/6">
-          <div className="md:w-1/3">
-            <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center ">
+      <ssdiv className="relative -top-24 mx-auto bg-white rounded-3xl border border-black flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-4 space-x-1 z-100 w-5/6">
+          <div className="md:w-1/3 py-10 border-r-2 border-black">
+            <div className="mx-auto rounded-full md: w-20 h-20 bg-[#FF5BEF] flex items-center">
               <img
                 src={technologies}
                 className="mx-auto w-12 filter invert"
@@ -134,7 +135,7 @@ function App() {
               ))}
             </ul>
           </div>
-          <div className="md:w-1/3">
+          <div className="md:w-1/3 py-10 md:border-r-2 border-black">
             <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
               <img
                 src={languages}
@@ -151,7 +152,7 @@ function App() {
               ))}
             </ul>
           </div>
-          <div className="md:w-1/3">
+          <div className="md:w-1/3 py-10">
             <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
               <img
                 src={tools}
@@ -168,13 +169,12 @@ function App() {
               ))}
             </ul>
           </div>
-        </div>
-      </div>
+        </ssdiv>
 
-      <div className="relative mt-10 bottom-5">
-        <div className="py-10">
+      <div className="bottom-5 mt-0">
+        <div className="pb-5">
           <strong className="font-sans text-4xl">Projects</strong>
-          <p className="font-code text-xl">
+          <p className="font-code text-xl w-[90%] mx-auto text-center">
             Projects I have undertaken or had the chance to collaborate on
           </p>
         </div>
@@ -248,7 +248,7 @@ function App() {
       </div>
 
       <footer className="bg-[#333333] mt-10 bottom-0">
-        <div className="py-10">
+        <div className="py-10 w-[90%] mx-auto">
           <h2 className="font-sans text-base text-white">
             App made with Tailwind, React, and sketched in Figma.
           </h2>
