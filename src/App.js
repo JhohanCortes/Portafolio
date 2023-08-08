@@ -118,7 +118,7 @@ function App() {
       </div>
 
       <ssdiv className="relative -top-24 mx-auto bg-white rounded-3xl border border-black flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-4 space-x-1 z-100 w-5/6">
-          <div className="md:w-1/3 py-10 border-r-2 border-black">
+          <div className="md:w-1/3 py-10 md:border-r-2 border-black">
             <div className="mx-auto rounded-full md: w-20 h-20 bg-[#FF5BEF] flex items-center">
               <img
                 src={technologies}
