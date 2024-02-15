@@ -1,36 +1,25 @@
-import React, { useState } from "react";
-import "./Header.css"
+// Header.js
+import React from "react";
 
-const Header = () => {
-  const [showNotification, setShowNotification] = useState(false);
-
-  const handleCopyEmail = () => {
-    const email = "dicenadie2@gmail.com";
-    navigator.clipboard
-      .writeText(email)
-      .then(() => {
-        setShowNotification(true);
-        setTimeout(() => setShowNotification(false), 5000); // Mostrar durante 5 segundos
-      })
-      .catch((error) => console.error("Error copying email:", error));
-  };
-
+const Header = ({ scrollToSection, aboutMeRef, projectsRef, skillsRef, contactRef }) => {
   return (
-    <div className="text-right relative">
-      <button
-        className="rounded-full border-2 border-black p-5 py-1 m-6 hover:bg-black hover:text-white hover:border-gray-600"
-        onClick={handleCopyEmail}
-      >
-        Contact me
-      </button>
-      {showNotification && (
-        <div
-          className="animate-notificationFadeOut bg-green-500 text-white px-4 py-2 rounded-lg absolute bottom-5 right-5 mt-20"
-          onAnimationEnd={() => setShowNotification(false)}
-        >
-          Mail address copied to your clipboard {":)"}
-        </div>
-      )}
+    <div className="fixed justify-items-end top-0 w-full bg-background text-secondary p-4 z-10 border-b-2 border-whtie ">
+      <nav>
+        <ul>
+          <li className="inline-block mr-4">
+            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(aboutMeRef)}>About Me</button>
+          </li>
+          <li className="inline-block mr-4">
+            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(projectsRef)}>Projects</button>
+          </li>
+          <li className="inline-block mr-4">
+            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(skillsRef)}>Skills</button>
+          </li>
+          <li className="inline-block">
+            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(contactRef)}>Contact</button>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

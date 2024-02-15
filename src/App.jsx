@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+
 
 import "./App.css";
 
@@ -10,16 +11,15 @@ import gitHub from "./Recourses/gitHub.png";
 import dog from "./Recourses/dog.png";
 import talentForge from "./Recourses/talent-forge.png";
 import cat from "./Recourses/cat.png";
-import pic from "./Recourses/pic.png";
 import tools from "./Recourses/tools.png";
 import languages from "./Recourses/languages.png";
 import technologies from "./Recourses/technologies.png";
 
 import Header from "./Components/Header/Header";
 
-const proyects = [
+const projects = [
   {
-    name: "Dog project",
+    name: "Dog Project",
     image: dog,
     deploy: null,
     repository: "https://github.com/JhohanCortes/Henry-Dogs-Proyect",
@@ -34,41 +34,50 @@ const proyects = [
 
 const Technologies = [
   "React",
+  "Zustand",
   "Redux",
   "Express",
   "Sequelize",
   "mySQL",
   "NodeJS",
   "Tailwind",
-  "PostgreSQL",
 ];
-const Languages = ["JS", "JSX", "CSS", "HTML"];
+const Languages = ["Javascruot", "Typescript", "CSS", "HTML"];
 const Tools = [
   "Photoshop",
   "Git",
   "Github",
   "Illustrator",
   "Figma",
-  "Excalidraw",
-  "Coreldraw",
 ];
 
 function App() {
+
+  const aboutMeRef = useRef(null);
+  const projectsRef = useRef(null);
+  const skillsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="text-center mx-auto">
-      <Header />
+    <div className="text-center mx-auto" style={{ background: '#333333', color: '#FFFFFF' }}>
+      <Header
+        aboutMeRef={aboutMeRef}
+        projectsRef={projectsRef}
+        skillsRef={skillsRef}
+        contactRef={contactRef}
+        scrollToSection={scrollToSection}
+      />
 
-      <div className="py-20">
+      <div className="py-20 ">
         <div>
-          <strong className="font-sans text-4xl">Full-Stack-Developer</strong>
-          <p className="font-code text-xl">Coding better than yesterday</p>
+          <strong className="font-sans text-6xl text-primary">Jhohan Cortes</strong>
+          <h1 className="font-sans text-4xl text-secondary">Full-Stack Developer</h1>
+          <p className="font-code text-xl text-secondary">Coding better than yesterday</p>
         </div>
-
-        <img
-          className="mx-auto pt-5 w-64 md:w-72 lg:w-96"
-          src={pic}
-          alt="Jhohan-Cortes"
-        />
         <div className="mt-2 flex justify-center items-center">
           <a
             href="https://www.linkedin.com/in/jhohan-cortes-a314a8213/"
@@ -98,10 +107,11 @@ function App() {
         className="mx-auto lg:w-96 w-1/2 pt-20 pb-0"
         src={cat}
         alt="Cat-Image"
+        ref={aboutMeRef}
       />
-
+      {/* about me */}
       <div className="md:relative">
-        <div className="pt-20 pb-40 bg-[#333333] text-white z-50 w-full">
+        <div className="pt-20 pb-40 bg-gray text-white z-50 w-full">
           <strong className="font-sans text-3xl">
             Hi, I'm Jhohan. Nice to meet you
           </strong>
@@ -116,70 +126,16 @@ function App() {
           </p>
         </div>
       </div>
-
-      <ssdiv className="relative -top-24 mx-auto bg-white rounded-3xl border border-black flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-4 space-x-1 z-100 w-5/6">
-          <div className="md:w-1/3 py-10 md:border-r-2 border-black">
-            <div className="mx-auto rounded-full md: w-20 h-20 bg-[#FF5BEF] flex items-center">
-              <img
-                src={technologies}
-                className="mx-auto w-12 filter invert"
-                alt="Technologies"
-              />
-            </div>
-            <strong>Technologies</strong>
-            <ul>
-              {Technologies.map((e, index) => (
-                <li key={index} className="font-code">
-                  {e}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="md:w-1/3 py-10 md:border-r-2 border-black">
-            <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
-              <img
-                src={languages}
-                className="mx-auto w-12 filter invert"
-                alt="Languages"
-              />
-            </div>
-            <strong>Languages</strong>
-            <ul>
-              {Languages.map((e, index) => (
-                <li key={index} className="font-code">
-                  {e}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="md:w-1/3 py-10">
-            <div className="mx-auto rounded-full w-20 h-20 bg-[#FF5BEF] flex items-center">
-              <img
-                src={tools}
-                className="mx-auto w-12 filter invert"
-                alt="Tools"
-              />
-            </div>
-            <strong>Tools</strong>
-            <ul>
-              {Tools.map((e, index) => (
-                <li key={index} className="font-code">
-                  {e}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </ssdiv>
-
-      <div className="bottom-5 mt-0">
+      {/* projects */}
+      <div className="bottom-5 mt-0" >
         <div className="pb-5">
-          <strong className="font-sans text-4xl">Projects</strong>
+          <strong className="font-sans text-4xl" ref={projectsRef}>Projects</strong>
           <p className="font-code text-xl w-[90%] mx-auto text-center">
             Projects I have undertaken or had the chance to collaborate on
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-2 grid-cols-1 w-5/6 mx-auto">
-          {proyects.map((e, index) => {
+          {projects.map((e, index) => {
             return (
               <div key={index} className="relative group mx-auto mb-4 md:mb-0">
                 <img
@@ -196,7 +152,7 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="rounded-full font-bold border-4 border-white hover:bg-pink-400 text-white p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
+                      <button className="rounded-full font-bold border-4 border-white hover:bg-primary text-white p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
                         Deploy
                       </button>
                     </a>
@@ -205,7 +161,7 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="rounded-full font-bold border-4 border-white hover:bg-pink-400 text-white p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
+                      <button className="rounded-full font-bold border-4 border-white hover:bg-primary text-white p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
                         Github
                       </button>
                     </a>
@@ -217,7 +173,7 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="rounded-full font-bold border-4 border-white hover:bg-pink-400 text-white p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
+                      <button className="rounded-full font-bold border-4 border-white hover:bg-primary text-white p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
                         Github
                       </button>
                     </a>
@@ -228,24 +184,93 @@ function App() {
           })}
         </div>
       </div>
-      <div className="mt-5">
-        <h1 className="font-bold mb-4">If u want work with me:</h1>
+
+      {/* skills */}
+      <div>
+
+      <div className="relative mt-40 mx-auto bg-background rounded-3xl border border-secondari flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-4 space-x-1 z-100 w-5/6" ref={skillsRef}>
+        <div className="md:w-1/3 py-10 md:border-r-2 border-secondari">
+          <div className="mx-auto rounded-full w-20 h-20 bg-primary flex items-center">
+            <img
+              src={technologies}
+              className="mx-auto w-12 filter invert"
+              alt="Technologies"
+              />
+          </div>
+          <strong className="text-primary">Technologies</strong>
+          <ul>
+            {Technologies.map((e, index) => (
+              <li key={index} className="font-code">
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="md:w-1/3 py-10 md:border-r-2 border-secondari">
+          <div className="mx-auto rounded-full w-20 h-20 bg-primary flex items-center">
+            <img
+              src={languages}
+              className="mx-auto w-12 filter invert"
+              alt="Languages"
+              />
+          </div>
+          <strong className="text-primary">Languages</strong>
+          <ul>
+            {Languages.map((e, index) => (
+              <li key={index} className="font-code">
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="md:w-1/3 py-10">
+          <div className="mx-auto rounded-full w-20 h-20 bg-primary flex items-center">
+            <img
+              src={tools}
+              className="mx-auto w-12 filter invert"
+              alt="Tools"
+              />
+          </div>
+          <strong className="text-primary">Tools</strong>
+          <ul>
+            {Tools.map((e, index) => (
+              <li key={index} className="font-code">
+                {e}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+            </div>
+
+      {/* contact */}
+      <div className="mt-5 h-screen" ref={contactRef}>
+        <h1 className="font-bold mb-4 ">Contact Information:</h1>
+        <p className="mb-2">Feel free to reach out to me via:</p>
+        <ul className="ml-5 mb-4">
+          <li>Email: dicenadie2@gmail.com</li>
+          <li>Phone: +52 322 8820 772</li>
+          <a href="https://www.linkedin.com/in/jhohan-cortes-a314a8213/" target="_blank" rel="noopener noreferrer"><li>LinkedIn: Jhohan Cortes</li></a>
+        </ul>
+        <p className="mb-2">Download my resume:</p>
         <a
           href={eng_cv}
           download
-          className="font-code uppercase border-2 border-black rounded-full py-2 px-4 font-bold mx-2 hover:bg-gray-300 duration-200"
+          className="font-code uppercase border-2 border-secondari rounded-full py-2 px-4 font-bold mx-2 hover:bg-gray-300 duration-200"
+          style={{ background: '#333333', color: '#FFFFFF' }}
         >
-          eng cv
+          ENG CV
         </a>
         <a
           href={esp_cv}
           download
-          className="font-code uppercase border-2 border-black rounded-full py-2 px-4 font-bold mx-2 hover:bg-gray-300 duration-200"
-
+          className="font-code uppercase border-2 border-secondari rounded-full py-2 px-4 font-bold mx-2 hover:bg-gray-300 duration-200"
+          style={{ background: '#333333', color: '#FFFFFF' }}
         >
           ESP CV
         </a>
       </div>
+
 
       <footer className="bg-[#333333] mt-10 bottom-0">
         <div className="py-10 w-[90%] mx-auto">
