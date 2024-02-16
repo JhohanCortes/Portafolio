@@ -1,19 +1,19 @@
-/* Ejemplo del CSS para la animación de desvanecimiento */
-@keyframes notificationFadeOut {
-    0% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-  
-  /* Estilo de la notificación */
-  .animate-notificationFadeOut {
-    animation: notificationFadeOut 5s linear;
-  }
-  
+/* styles.css */
+.menu-item {
+  position: relative; /* Asegura que el elemento sea un contenedor para el elemento subrayado */
+}
+
+.menu-item::after {
+  content: ""; /* Añade un elemento después del contenido del elemento */
+  position: absolute; /* Posiciona el subrayado en relación al elemento principal */
+  bottom: -2px; /* Ajusta la posición del subrayado (puedes ajustar según sea necesario) */
+  left: 0; /* Coloca el subrayado al principio del elemento */
+  width: 0; /* Inicialmente, el subrayado tiene 0 de ancho */
+  height: 2px; /* Altura del subrayado */
+  background-color: #ffffff; /* Color del subrayado */
+  transition: width 0.3s ease; /* Transición suave para el cambio de ancho */
+}
+
+.menu-item.active::after {
+  width: 100%; /* Ancho del subrayado igual al ancho del elemento */
+}

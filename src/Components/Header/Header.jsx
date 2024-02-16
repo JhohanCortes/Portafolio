@@ -1,22 +1,25 @@
 // Header.js
 import React from "react";
 
-const Header = ({ scrollToSection, aboutMeRef, projectsRef, skillsRef, contactRef }) => {
+const Header = ({ scrollToSection, aboutMeRef, projectsRef, skillsRef, contactRef, homeRef }) => {
   return (
-    <div className="fixed justify-items-end top-0 w-full bg-background text-secondary p-4 z-10 border-b-2 border-whtie ">
+    <div className="h-[60px] fixed top-0 w-full bg-[#222222] text-secondary p-2 z-10 border-b-[1px] border-whtie">
       <nav>
         <ul>
           <li className="inline-block mr-4">
-            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(aboutMeRef)}>About Me</button>
+            <button className="hover:border-primary hover:border-b-[1px] px-4 py-2" onClick={() => scrollToSection(homeRef)}>Inicio</button>
           </li>
           <li className="inline-block mr-4">
-            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(projectsRef)}>Projects</button>
+            <button className="hover:border-primary hover:border-b-[1px] px-4 py-2" onClick={() => scrollToSection(aboutMeRef)}>Sobre mi</button>
           </li>
           <li className="inline-block mr-4">
-            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(skillsRef)}>Skills</button>
+            <button className="hover:border-primary hover:border-b-[1px] px-4 py-2" onClick={() => scrollToSection(projectsRef)}>Proyectos</button>
+          </li>
+          <li className="inline-block mr-4">
+            <button className="hover:border-primary hover:border-b-[1px] px-4 py-2" onClick={() => scrollToSection(skillsRef)}>Conocimientos</button>
           </li>
           <li className="inline-block">
-            <button className="hover:bg-primary hover:text-secondary px-4 py-2 rounded" onClick={() => scrollToSection(contactRef)}>Contact</button>
+            <button className="hover:border-primary hover:border-b-[1px] px-4 py-2  " onClick={() => scrollToSection(contactRef)}>Contacto</button>
           </li>
         </ul>
       </nav>
