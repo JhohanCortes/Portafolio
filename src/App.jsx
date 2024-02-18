@@ -22,13 +22,13 @@ const projects = [
     name: "Dog Project",
     image: dog,
     deploy: null,
-    repository: "https://github.com/JhohanCortes/Henry-Dogs-Proyect",
+    texto: "https://github.com/JhohanCortes/Henry-Dogs-Proyect",
   },
   {
     name: "Talent Forge",
     image: talentForge,
     deploy: "https://deploy-front-end-theta.vercel.app/",
-    repository: "https://github.com/JhohanCortes/TalentForgeFrontEnd",
+    texto: "Plataforma colaborativa para registro, carga y visualización de cursos, facilitando el aprendizaje y el intercambio de conocimientos.",
   },
 ];
 
@@ -106,7 +106,7 @@ function App() {
         </div>
       </div>
       {/* Acerca de mí */}
-      <div ref={aboutMeRef} className="pb-[150px]">
+      <div ref={aboutMeRef} className="pb-[50px]">
 
         <img
           className="mx-auto lg:w-96 w-1/2 pt-[60px]"
@@ -114,26 +114,26 @@ function App() {
           alt="Imagen de Gato"
         />
         <div className="md:relative">
-          <div className="pt-20 pb-40 bg-[#222222] z-50 w-full">
+          <div className="pt-20 pb-20 bg-[#222222] z-50 w-full">
             <strong className="font-sans text-3xl text-primary">
               Hola, soy Jhohan. Encantado de conocerte.
             </strong>
-            <p className="font-code mx-auto text-l w-5/6 md:w-1/2">
-              Desde 2022, he estado inmerso en el mundo de la programación, donde he encontrado mi pasión por la creación de software innovador. Mi formación autodidacta, complementada con la graduación del prestigioso bootcamp de Henry, me ha proporcionado una base sólida en desarrollo full-stack, con un enfoque especial en el diseño y la usabilidad. Soy un apasionado del aprendizaje continuo y siempre busco superar los desafíos técnicos con soluciones elegantes y eficientes.
+            <p className="font-code mx-auto text-l w-5/6 md:w-1/2 pt-2">
+            En los últimos años, he estado profundizando en el apasionante campo del desarrollo de software, donde he descubierto mi vocación por la creación de soluciones innovadoras. Mi formación ha sido un viaje de autodescubrimiento, combinando una búsqueda constante de conocimientos con experiencias prácticas significativas. He fortalecido mi base técnica a través de diversas fuentes de aprendizaje, incluyendo proyectos personales y la participación activa en comunidades de desarrollo. Estoy comprometido con la excelencia técnica y siempre busco superar desafíos con soluciones que destaquen por su elegancia y eficiencia.
             </p>
           </div>
         </div>
       </div>
       {/* Proyectos */}
-      <div className="pb-[40px] pt-[60px]" ref={projectsRef} >
-        <div className="pb-5">
+      <div className="pb-[40px] pt-[120px]" ref={projectsRef} >
+        <div>
           <strong className="font-sans text-4xl text-primary" >Proyectos</strong>
           <p className="font-code text-xl w-[90%] mx-auto text-center">
             Explora algunos de mis proyectos destacados
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-2 grid-cols-1 w-5/6 mx-auto">
-          {projects.map((e, index) => {
+        {projects.map((e, index) => {
             return (
               <div key={index} className="relative group mx-auto mb-4 md:mb-0">
                 <img
@@ -141,50 +141,30 @@ function App() {
                   alt={e.name}
                   className="border-2 border-gray-800 hover:brightness-0 duration-200 h-full w-full rounded"
                 />
-                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity group-hover:opacity-50"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity group-hover:opacity-75"></div>
 
-                {e.deploy ? (
-                  <div className="grid grid-cols-1 gap-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <a
-                      href={e.deploy}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button className="rounded-full font-bold border-4 border-white hover:bg-primary p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
-                        Ver en Vivo
-                      </button>
-                    </a>
-                    <a
-                      href={e.repository}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button className="rounded-full font-bold border-4 border-white hover:bg-primary p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
-                        GitHub
-                      </button>
-                    </a>
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 gap-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <a
-                      href={e.repository}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button className="rounded-full font-bold border-4 border-white hover:bg-primary p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
-                        GitHub
-                      </button>
-                    </a>
-                  </div>
-                )}
+                <div className="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <p className="p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
+                      {e.texto}
+                    </p>
+                  <a
+                    href={e.deploy}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white"
+                  >
+                    <button className="rounded-md font-bold border-2 border-white hover:bg-primary p-5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
+                      Visita
+                    </button>
+                  </a>
+                </div>
               </div>
             );
           })}
         </div>
       </div>
-
       {/* Habilidades */}
-      <div  ref={skillsRef} className="pt-[130px] pb-[50px]">
+      <div ref={skillsRef} className="pt-[130px] pb-[50px]">
 
         <div className="relative mx-auto bg-background rounded-3xl border border-secondary flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-4 space-x-1 z-100 w-5/6">
           <div className="md:w-1/3 py-10 md:border-r-2 border-secondary">
@@ -212,7 +192,7 @@ function App() {
                 alt="Idiomas"
               />
             </div>
-            <strong className="text-primary">Idiomas</strong>
+            <strong className="text-primary">Lenguajes</strong>
             <ul>
               {Languages.map((e, index) => (
                 <li key={index} className="font-code">
