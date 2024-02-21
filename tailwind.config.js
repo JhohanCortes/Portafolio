@@ -10,7 +10,7 @@ module.exports = {
         code: ['source-code-pro', 'Menlo', 'Monaco', 'Consolas', 'Courier New', 'monospace'],
       },
       colors:{
-        background:'#333333',
+        background:'#111111',
         primary:'#F1662F',
         // primary:'#FF5BEF',
         secondary:'#FFFFFF',

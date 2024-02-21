@@ -1,23 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Recurso from './Recurso.jsx';
+
 import icon from "../Recourses/icon.png";
 
 const Resources = () => {
     const recursos = [
         {
-            nombre: 'ChatGPT',
-            descripcion: 'Una poderosa herramienta de chat basada en IA.',
-            imagen: 'https://via.placeholder.com/150',
-            enlace: 'https://chat.openai.com/',
+            nombre: 'UIVERSE',
+            descripcion: 'UIVERSE es una plataforma para la creación de aplicaciones web y móviles de manera rápida y sencilla.',
+            imagen: 'https://uiverse.io/build/_assets/home-page-elements-GNCYSTEC.png',
+            enlace: 'https://uiverse.io',
         },
         {
-            nombre: 'OpenAI',
-            descripcion: 'Plataforma líder en inteligencia artificial.',
-            imagen: 'https://via.placeholder.com/150',
-            enlace: 'https://openai.com/',
+            nombre: 'flowbite',
+            descripcion: 'flowbite es un conjunto de herramientas y componentes de interfaz de usuario para el desarrollo web moderno.',
+            imagen: 'https://flowbite.com/images/og-image.png',
+            enlace: 'https://flowbite.com',
+        },
+        {
+            nombre: 'boxicons',
+            descripcion: 'boxicons es una biblioteca de iconos vectoriales que puedes integrar fácilmente en tus proyectos web.',
+            imagen: 'https://s3-alpha.figma.com/hub/file/533342083/d5ce9b94-2ced-4521-ad4f-5376f486106b-cover.png',
+            enlace: 'https://boxicons.com',
+        },
+        {
+            nombre: 'cool contrast',
+            descripcion: 'cool contrast es una herramienta en línea que te ayuda a encontrar combinaciones de colores con buen contraste para tus proyectos de diseño.',
+            imagen: 'https://res.cloudinary.com/dxarbtyux/image/upload/v1705261799/color-contrast-inspector/hero-bg.webp',
+            enlace: 'https://coolcontrast.vercel.app',
         },
     ];
+
 
     return (
         <div className="relative">
@@ -44,26 +59,10 @@ const Resources = () => {
                 />
             </Link>
             <div className="container mx-auto top-[60px] px-4 py-20">
-                <h1 className="text-3xl font-bold mb-4">Recursos</h1>
+                <h1 className="text-3xl text-primary font-bold mb-4">Recursos</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {recursos.map((recurso, index) => (
-                        <div key={index} className="bg-white shadow-md rounded-md p-4">
-                            <img
-                                src={recurso.imagen}
-                                alt={recurso.nombre}
-                                className="w-full h-auto mb-4 rounded-md"
-                            />
-                            <h2 className="text-xl font-bold mb-2">{recurso.nombre}</h2>
-                            <p className="text-gray-600 mb-4">{recurso.descripcion}</p>
-                            <a
-                                href={recurso.enlace}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-500 hover:underline"
-                            >
-                                Ir al recurso
-                            </a>
-                        </div>
+                        <Recurso key={index} recurso={recurso} />
                     ))}
                 </div>
             </div>
