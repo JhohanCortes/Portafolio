@@ -19,9 +19,8 @@ const Recurso = ({ recurso }) => {
                 <p className="mt-2 text-white">{descripcion}</p>
                 <button
                     onClick={handleClick}
-                    className="inline-flex items-center mt-4 text-white text-sm font-medium bg-blue-600 rounded px-2 py-1"
-                >
-                    <span className="transition duration-300 transform">Ir al recurso</span>
+                    className="mt-2 font-code uppercase border-[1px] border-secondary rounded-md py-2 px-4 font-bold"                >
+                    <span>Ir al recurso</span>
                     <span aria-hidden="true" className="ml-1">&#8594;</span>
                 </button>
             </div>

@@ -61,9 +61,12 @@ const Header = ({ scrollToSection, aboutMeRef, projectsRef, skillsRef, contactRe
             <li className="mb-2">
               <button className="hover:border-primary hover:border-b-[1px] w-full px-4 py-2" onClick={() => { scrollToSection(skillsRef); toggleMenu(); }}>Conocimientos</button>
             </li>
-            <li>
+            <li className="mb-2"  >
               <button className="hover:border-primary hover:border-b-[1px] w-full px-4 py-2" onClick={() => { scrollToSection(contactRef); toggleMenu(); }}>Contacto</button>
             </li>
+            <li className="mb-2"  ><Link to="/resources">
+              <button className="hover:border-primary hover:border-b-[1px] px-4 py-2">Recursos</button>
+            </Link></li>
           </ul>
         </div>
       )}

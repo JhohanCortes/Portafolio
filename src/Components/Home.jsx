@@ -78,7 +78,7 @@ function Home() {
           <h1 className="font-sans text-4xl text-secondary">Desarrollador Full-Stack</h1>
           <p className="font-code text-xl text-secondary">Mejorando el mundo, una línea de código a la vez</p>
         </div>
-        <div className="mt-2 flex justify-center items-center">
+        <div className="mt-2 flex justify-center gap-2 items-center">
           <a
             href="https://www.linkedin.com/in/jhohan-cortes-a314a8213/"
             target="_blank"
@@ -107,7 +107,7 @@ function Home() {
       <div ref={aboutMeRef} className="pb-[50px]">
 
         <img
-          className="mx-auto lg:w-96 w-1/2 pt-[60px]"
+          className="mx-auto lg:w-60 w-1/2 pt-[60px]"
           src={cat}
           alt="Imagen de Gato"
         />
@@ -246,18 +246,6 @@ function Home() {
           CV en Español
         </a>
       </div>
-
-
-      <footer className="bg-[#222222] mt-10 bottom-0">
-        <div className="py-10 w-[90%] mx-auto">
-          <h2 className="font-code">
-            Aplicación desarrollada con Tailwind, React y diseñada en Figma.
-          </h2>
-          <h2 className="font-code">
-            ¡Contáctame en GitHub, LinkedIn o por correo electrónico para conocer más sobre mi experiencia y cómo puedo contribuir a tu equipo!
-          </h2>
-        </div>
-      </footer>
     </div>
 
   );

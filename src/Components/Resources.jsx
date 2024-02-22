@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Recurso from './Recurso.jsx';
 
-import icon from "../Recourses/icon.png";
+import back from "../Recourses/back.png";
 
 const Resources = () => {
     const recursos = [
@@ -15,21 +15,27 @@ const Resources = () => {
         },
         {
             nombre: 'flowbite',
-            descripcion: 'flowbite es un conjunto de herramientas y componentes de interfaz de usuario para el desarrollo web moderno.',
+            descripcion: 'Flowbite es un conjunto de herramientas y componentes de interfaz de usuario para el desarrollo web moderno.',
             imagen: 'https://flowbite.com/images/og-image.png',
             enlace: 'https://flowbite.com',
         },
         {
             nombre: 'boxicons',
-            descripcion: 'boxicons es una biblioteca de iconos vectoriales que puedes integrar fácilmente en tus proyectos web.',
+            descripcion: 'Boxicons es una biblioteca de iconos vectoriales que puedes integrar fácilmente en tus proyectos web.',
             imagen: 'https://s3-alpha.figma.com/hub/file/533342083/d5ce9b94-2ced-4521-ad4f-5376f486106b-cover.png',
             enlace: 'https://boxicons.com',
         },
         {
             nombre: 'cool contrast',
-            descripcion: 'cool contrast es una herramienta en línea que te ayuda a encontrar combinaciones de colores con buen contraste para tus proyectos de diseño.',
+            descripcion: 'Herramienta en línea que te ayuda a encontrar combinaciones de colores con buen contraste para tus proyectos de diseño.',
             imagen: 'https://res.cloudinary.com/dxarbtyux/image/upload/v1705261799/color-contrast-inspector/hero-bg.webp',
             enlace: 'https://coolcontrast.vercel.app',
+        },
+        {
+            nombre: 'JSON Data AI',
+            descripcion: 'Genera endpoints de API con datos JSON generados por IA.Obtén información sobre cualquier tema con solo un prompt.',
+            imagen: 'https://www.scriptbyai.com/wp-content/uploads/2023/09/JSON-Data-AI.webp',
+            enlace: 'https://www.jsondataai.com',
         },
     ];
 
@@ -42,22 +48,15 @@ const Resources = () => {
                         <div>
                             <Link to="/">
                                 <img
-                                    src={icon}
+                                    src={back}
                                     alt="Back"
-                                    className="w-9 h-9"
+                                    className="h-9"
                                 />
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
-            <Link to="/" className="fixed top-0 left-0 m-4">
-                <img
-                    src={icon}
-                    alt="Back"
-                    className="w-9 h-9"
-                />
-            </Link>
             <div className="container mx-auto top-[60px] px-4 py-20">
                 <h1 className="text-3xl text-primary font-bold mb-4">Recursos</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
